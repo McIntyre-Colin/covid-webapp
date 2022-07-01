@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% include "/snippets/navbar.html" %}
+
+{% block content %}
+
+<h1> WORKS</h1> 
+<form method="GET" action="/your-charts/">
+ <div class="input-group mb-2">
+     <input name="searchterm" type="text" class="form-control form-control-lg" placeholder="Enter state to compare " />
+     <button class="btn btn-primary btn-lg input-group-text">Search</button>
+ </div>
+</form>
+{{ rendered_chart|safe }}
+
+{% endblock content %}

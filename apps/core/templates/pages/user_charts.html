@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% include "snippets/navbar.html" %}
+
+{% block content %}
+
+    {% for rendered_chart in rendered_charts %}
+   {{ rendered_chart|safe }} 
+
+<button> 
+    <a href= "{% url 'editChart' user.username id %}" > Edit </a> 
+</button>
+   {% endfor %}
+    
+
+
+    </br>
+    
+    <button> 
+        <a href= "{% url 'createChart' user.username%}" > Create </a> 
+    </button>
+
+{% endblock content %}

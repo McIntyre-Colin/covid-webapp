@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+    {{ form_title }} - Edit - New Chart
+{% endblock title %}
+
+{% block content %}
+
+
+<div class="card border rounded shadow-lg">
+    <div class="card-body">
+        <h1>{{ form_title }}</h1>
+        <form class="d-grid" method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button class="btn btn-lg btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

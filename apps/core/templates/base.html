@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>
+        {% block title %}
+            Covid Dashboard
+        {% endblock title %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/icon.png' %}"/>
+    <meta name="description" content="{% block meta_description %}Covid Information{% endblock %}">
+    <meta name="author" content="Colin M.">
+
+    <link rel="stylesheet" href="https://bootswatch.com/5/minty/bootstrap.min.css" />
+    <link href="{% static 'css/signinform.css' %}" rel="stylesheet">
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+
+  </head>
+
+<body>
+
+{% include "snippets/navbar.html" %}
+
+{# Here we define another block that can be used by templates extending this one #}
+{% block content_above_container %}
+{% endblock content_above_container %}
+
+{% block main %}
+    <div class="container pt-3">
+
+      {# Enable Django's "messages" system #}
+      {% if messages %}
+          {% for message in messages %}
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+          {% endfor %}
+      {% endif %}
+
+      {% block content %}
+        <p>Be sure to override the "content" template tag!</p>
+      {% endblock content %}
+
+    </div>
+{% endblock main %}
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">
+                &copy; {% now "Y" %} Glizzy Gang 
+            </span>
+        </div>
+    </footer>
+  </body>
+</html>
+

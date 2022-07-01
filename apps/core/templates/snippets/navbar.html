@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary text-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            {% include "snippets/icons/book2.svg" %}
+            Home
+        </a>
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                ☰
+            </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+            </ul>
+            <ul class="navbar-nav ms-auto">
+
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/nationwide/" >Nationwide Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'userPage' user.username %}" >Your Charts</a>
+                    </li>
+                    <!-- <li class="nav-item me-5">
+                        <a href="/list/create/" class="nav-link">
+                            {% include "snippets/icons/plus.svg" %}
+                            Create
+                        </a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}" >Sign Out</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'view_profile' request.user %}" >
+                            {{ request.user }}
+                            <img src="{{ user.gravatar }}" class="navbar-avatar" />
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+                    </li>
+                {% endif %}
+            </ul>
+
+        </div>
+    </div>
+</nav>

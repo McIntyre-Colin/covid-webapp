@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% include "/snippets/navbar.html" %}
+
+{% block content %}
+
+<table>
+    <thead> Date: {{ state_data.0.date }} </thead>
+    <thead> <tr><th> State Abbreviation</th> <th>Positive Cases</th> <th>People Hospitalized</th><th>Increase in Positive Cases (daily)</th> </tr></thead>
+    <tbody>
+        {% for state in state_data %}
+            <tr>
+                <td>{{ state.state }}</td>
+                <td>{{ state.positive }}</td>
+                <td>{{ state.hospitalizedCurrently }}</td>
+                <td>{{ state.positiveIncrease }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock content %}

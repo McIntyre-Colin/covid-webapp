@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ reading_list }} - The Book Club
+{% endblock title %}
+
+{% block content %}
+
+<h1>{{ reading_list }}</h1>
+
+<blockquote class="blockquote">
+    <p class="mb-0">
+        {{ reading_list.description }}
+    </p>
+    <footer class="blockquote-footer">
+        <a class="btn btn-link me-3" href="{% url "view_profile" reading_list.creator_user.username %}">
+            {{ reading_list.creator_user }}
+        </a>
+        {% include "snippets/icons/book.svg" %}
+        {{ reading_list.views }} views
+        <span class="badge bg-info ms-3">{{ reading_list.category }}</span>
+        {{ reading_list.created|date:"F jS Y" }}
+
+        {% if reading_list.creator_user == user %}
+            <a href="/list/delete/{{ reading_list.id }}/" class="btn btn-outline-danger btn-sm ms-auto">Delete this list</a>
+        {% endif %}
+
+    </footer>
+</blockquote>
+
+{% for book in all_books %}
+    <div class="d-flex mt-5 border rounded shadow">
+        <img src="https://i.imgur.com/dMlC0dn.png" alt="Book icon" />
+        <div class="flex-fill ms-3">
+            <h5>{{ book.title }}</h5>
+            <p>{{ book.description|escape|linebreaks }}</p>
+        </div>
+
+        {% if request.user == reading_list.creator_user %}
+            <a href="/book-delete/{{ book.id }}/" class="align-self-start btn btn-outline-danger btn-sm">
+                {% include "snippets/icons/trash.svg" %}
+            </a>
+        {% endif %}
+    </div>
+{% endfor %}
+
+
+{% if user.is_authenticated and reading_list.creator_user == user %}
+    <p class="d-grid mt-5">
+        <a href="/book-create/{{ reading_list.id }}/" class="btn btn-outline-primary btn-lg">
+            {% include "snippets/icons/plus.svg" %} 
+            Book
+        </a>
+    </p>
+{% endif %}
+
+{% endblock content %}
+

@@ -1,0 +1,31 @@
+{% load django_bootstrap5 %}
+
+{% for rl in results_page %}
+    <!-- Loop through each Reading List and display it -->
+
+    <div class="d-flex justify-content-between mt-3 border rounded shadow-sm">
+        <!-- This shows the "name" of the Reading List as a link to the full
+             details of that list -->
+        <div class="ms-3 mt-1 mb-1 position-relative">
+            <h5><a href="/list/{{ rl.id }}/" class="stretched-link">{{ rl }} <span class="badge bg-primary ms-2">{{ rl.category }}</span></a></h5>
+        </div>
+
+        <!-- This shows the creation date of the list, along with the avatar
+             and username of the creator -->
+        <div>
+            on {{ rl.created|date:"F jS Y" }} by
+            <a class="btn btn-link" href="{% url "view_profile" rl.creator_user.username %}">
+                {{ rl.creator_user }}
+                <img src="{{ rl.creator_user.gravatar }}" class="navbar-avatar" />
+            </a>
+        </div>
+    </div>
+{% empty %}
+    <p>No reading lists... yet!</p>
+{% endfor %}
+
+{% if results_page.has_other_pages %}
+    <div class="mt-5">
+        {% bootstrap_pagination results_page %}
+    </div>
+{% endif %}

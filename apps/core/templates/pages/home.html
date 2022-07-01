@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+   Community Charts
+{% endblock title %}
+
+{% block content_above_container %}
+    {% if not user.is_authenticated %}
+        {% include "snippets/hero.html" %}
+    {% endif %}
+{% endblock content_above_container %}
+
+{% block content %}
+
+<h1>Your Top Charts</h1>
+
+{% include "snippets/reading_lists.html" %}
+
+{% endblock content %}
+

@@ -1,0 +1,1111 @@
+[
+{
+    "model": "core.book",
+    "pk": 1,
+    "fields": {
+        "title": "The Lord of the Rings",
+        "description": "",
+        "reading_list": 1
+    }
+},
+{
+    "model": "core.book",
+    "pk": 2,
+    "fields": {
+        "title": "Harry Potter and the Prisoner of Azkaban",
+        "description": "",
+        "reading_list": 1
+    }
+},
+{
+    "model": "core.book",
+    "pk": 3,
+    "fields": {
+        "title": "A Game of Thrones",
+        "description": "",
+        "reading_list": 1
+    }
+},
+{
+    "model": "core.book",
+    "pk": 4,
+    "fields": {
+        "title": "The Way of Kings",
+        "description": "",
+        "reading_list": 1
+    }
+},
+{
+    "model": "core.book",
+    "pk": 5,
+    "fields": {
+        "title": "The Storm Before the Storm: The Beginning of the End of the Roman Republic",
+        "description": "",
+        "reading_list": 2
+    }
+},
+{
+    "model": "core.book",
+    "pk": 6,
+    "fields": {
+        "title": "Fordlandia: The Rise and Fall of Henry Ford's Forgotten Jungle City",
+        "description": "",
+        "reading_list": 2
+    }
+},
+{
+    "model": "core.book",
+    "pk": 7,
+    "fields": {
+        "title": "City of Quartz: Excavating the Future in Los Angeles",
+        "description": "",
+        "reading_list": 2
+    }
+},
+{
+    "model": "core.book",
+    "pk": 8,
+    "fields": {
+        "title": "The Empire of Necessity: Slavery, Freedom, and Deception in the New World",
+        "description": "",
+        "reading_list": 2
+    }
+},
+{
+    "model": "core.book",
+    "pk": 9,
+    "fields": {
+        "title": "The Age of Empire: 1875-1914",
+        "description": "",
+        "reading_list": 2
+    }
+},
+{
+    "model": "core.book",
+    "pk": 10,
+    "fields": {
+        "title": "Nineteen Eighty-Four",
+        "description": "",
+        "reading_list": 3
+    }
+},
+{
+    "model": "core.book",
+    "pk": 11,
+    "fields": {
+        "title": "Ender's Game",
+        "description": "",
+        "reading_list": 3
+    }
+},
+{
+    "model": "core.book",
+    "pk": 12,
+    "fields": {
+        "title": "Starship Troopers",
+        "description": "",
+        "reading_list": 3
+    }
+},
+{
+    "model": "core.book",
+    "pk": 13,
+    "fields": {
+        "title": "Snow Crash",
+        "description": "",
+        "reading_list": 3
+    }
+},
+{
+    "model": "core.book",
+    "pk": 14,
+    "fields": {
+        "title": "Slaughterhouse Five",
+        "description": "",
+        "reading_list": 3
+    }
+},
+{
+    "model": "core.book",
+    "pk": 15,
+    "fields": {
+        "title": "Dune",
+        "description": "",
+        "reading_list": 4
+    }
+},
+{
+    "model": "core.book",
+    "pk": 16,
+    "fields": {
+        "title": "The Left Hand of Darkness",
+        "description": "",
+        "reading_list": 4
+    }
+},
+{
+    "model": "core.book",
+    "pk": 17,
+    "fields": {
+        "title": "The Martian",
+        "description": "",
+        "reading_list": 4
+    }
+},
+{
+    "model": "core.book",
+    "pk": 18,
+    "fields": {
+        "title": "Foundation",
+        "description": "",
+        "reading_list": 4
+    }
+},
+{
+    "model": "core.book",
+    "pk": 19,
+    "fields": {
+        "title": "The Time Machine",
+        "description": "",
+        "reading_list": 4
+    }
+},
+{
+    "model": "core.book",
+    "pk": 20,
+    "fields": {
+        "title": "The War of the Worlds",
+        "description": "",
+        "reading_list": 4
+    }
+},
+{
+    "model": "core.book",
+    "pk": 21,
+    "fields": {
+        "title": "I, Robot",
+        "description": "",
+        "reading_list": 4
+    }
+},
+{
+    "model": "core.book",
+    "pk": 22,
+    "fields": {
+        "title": "Hitchhiker's Guide to the Galaxy",
+        "description": "",
+        "reading_list": 4
+    }
+},
+{
+    "model": "core.book",
+    "pk": 23,
+    "fields": {
+        "title": "The Hunger Games",
+        "description": "",
+        "reading_list": 5
+    }
+},
+{
+    "model": "core.book",
+    "pk": 24,
+    "fields": {
+        "title": "Catching Fire",
+        "description": "",
+        "reading_list": 5
+    }
+},
+{
+    "model": "core.book",
+    "pk": 25,
+    "fields": {
+        "title": "Mockingjay",
+        "description": "",
+        "reading_list": 5
+    }
+},
+{
+    "model": "core.book",
+    "pk": 26,
+    "fields": {
+        "title": "Divergent",
+        "description": "",
+        "reading_list": 5
+    }
+},
+{
+    "model": "core.book",
+    "pk": 27,
+    "fields": {
+        "title": "The Maze Runner",
+        "description": "",
+        "reading_list": 5
+    }
+},
+{
+    "model": "core.book",
+    "pk": 28,
+    "fields": {
+        "title": "The Cat in the Hat",
+        "description": "",
+        "reading_list": 6
+    }
+},
+{
+    "model": "core.book",
+    "pk": 29,
+    "fields": {
+        "title": "Goodnight Moon",
+        "description": "",
+        "reading_list": 6
+    }
+},
+{
+    "model": "core.book",
+    "pk": 30,
+    "fields": {
+        "title": "Winnie-thePooh",
+        "description": "",
+        "reading_list": 6
+    }
+},
+{
+    "model": "core.book",
+    "pk": 31,
+    "fields": {
+        "title": "Where the Wild Things Are",
+        "description": "",
+        "reading_list": 6
+    }
+},
+{
+    "model": "core.book",
+    "pk": 32,
+    "fields": {
+        "title": "The Little Prince",
+        "description": "",
+        "reading_list": 6
+    }
+},
+{
+    "model": "core.book",
+    "pk": 33,
+    "fields": {
+        "title": "Green Eggs and Ham",
+        "description": "",
+        "reading_list": 6
+    }
+},
+{
+    "model": "core.book",
+    "pk": 34,
+    "fields": {
+        "title": "Pride and Prejudice",
+        "description": "",
+        "reading_list": 7
+    }
+},
+{
+    "model": "core.book",
+    "pk": 35,
+    "fields": {
+        "title": "Jane Eyre",
+        "description": "",
+        "reading_list": 7
+    }
+},
+{
+    "model": "core.book",
+    "pk": 36,
+    "fields": {
+        "title": "Middlemarch",
+        "description": "",
+        "reading_list": 7
+    }
+},
+{
+    "model": "core.book",
+    "pk": 37,
+    "fields": {
+        "title": "Moby Dick",
+        "description": "",
+        "reading_list": 7
+    }
+},
+{
+    "model": "core.book",
+    "pk": 38,
+    "fields": {
+        "title": "Emma",
+        "description": "",
+        "reading_list": 7
+    }
+},
+{
+    "model": "core.book",
+    "pk": 39,
+    "fields": {
+        "title": "War and Peace",
+        "description": "",
+        "reading_list": 7
+    }
+},
+{
+    "model": "core.book",
+    "pk": 40,
+    "fields": {
+        "title": "Wuthering Heights",
+        "description": "",
+        "reading_list": 7
+    }
+},
+{
+    "model": "core.book",
+    "pk": 41,
+    "fields": {
+        "title": "Dracula",
+        "description": "",
+        "reading_list": 7
+    }
+},
+{
+    "model": "core.book",
+    "pk": 42,
+    "fields": {
+        "title": "Anna Karenina",
+        "description": "",
+        "reading_list": 7
+    }
+},
+{
+    "model": "core.book",
+    "pk": 43,
+    "fields": {
+        "title": "The Adventures of Huckleberry Finn",
+        "description": "",
+        "reading_list": 8
+    }
+},
+{
+    "model": "core.book",
+    "pk": 44,
+    "fields": {
+        "title": "The Great Gatsby",
+        "description": "",
+        "reading_list": 8
+    }
+},
+{
+    "model": "core.book",
+    "pk": 45,
+    "fields": {
+        "title": "Mason & Dixon",
+        "description": "",
+        "reading_list": 8
+    }
+},
+{
+    "model": "core.book",
+    "pk": 46,
+    "fields": {
+        "title": "Moby Dick",
+        "description": "",
+        "reading_list": 8
+    }
+},
+{
+    "model": "core.book",
+    "pk": 47,
+    "fields": {
+        "title": "The Grapes of Wrath",
+        "description": "",
+        "reading_list": 8
+    }
+},
+{
+    "model": "core.book",
+    "pk": 48,
+    "fields": {
+        "title": "Frankenstein",
+        "description": "",
+        "reading_list": 9
+    }
+},
+{
+    "model": "core.book",
+    "pk": 49,
+    "fields": {
+        "title": "Journey to the Center of the Earth",
+        "description": "",
+        "reading_list": 9
+    }
+},
+{
+    "model": "core.book",
+    "pk": 50,
+    "fields": {
+        "title": "From the Earth to the Moon",
+        "description": "",
+        "reading_list": 9
+    }
+},
+{
+    "model": "core.book",
+    "pk": 51,
+    "fields": {
+        "title": "The Island of Doctor Moreau",
+        "description": "",
+        "reading_list": 9
+    }
+},
+{
+    "model": "core.book",
+    "pk": 52,
+    "fields": {
+        "title": "The Last Man",
+        "description": "",
+        "reading_list": 9
+    }
+},
+{
+    "model": "core.book",
+    "pk": 53,
+    "fields": {
+        "title": "The Worm Ouroboros",
+        "description": "",
+        "reading_list": 10
+    }
+},
+{
+    "model": "core.book",
+    "pk": 54,
+    "fields": {
+        "title": "The Zimiamivia Trilogy",
+        "description": "",
+        "reading_list": 10
+    }
+},
+{
+    "model": "core.book",
+    "pk": 55,
+    "fields": {
+        "title": "The King of Elfland's Daughter",
+        "description": "",
+        "reading_list": 10
+    }
+},
+{
+    "model": "core.book",
+    "pk": 56,
+    "fields": {
+        "title": "The Gods of Pegana",
+        "description": "",
+        "reading_list": 10
+    }
+},
+{
+    "model": "core.book",
+    "pk": 57,
+    "fields": {
+        "title": "At the Mountains of Madness",
+        "description": "",
+        "reading_list": 10
+    }
+},
+{
+    "model": "core.book",
+    "pk": 58,
+    "fields": {
+        "title": "The Call of Cthulhu",
+        "description": "",
+        "reading_list": 10
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "core",
+        "model": "readinglist"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "core",
+        "model": "book"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "accounts",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add reading list",
+        "content_type": 1,
+        "codename": "add_readinglist"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change reading list",
+        "content_type": 1,
+        "codename": "change_readinglist"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete reading list",
+        "content_type": 1,
+        "codename": "delete_readinglist"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view reading list",
+        "content_type": 1,
+        "codename": "view_readinglist"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add book",
+        "content_type": 2,
+        "codename": "add_book"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change book",
+        "content_type": 2,
+        "codename": "change_book"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete book",
+        "content_type": 2,
+        "codename": "delete_book"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view book",
+        "content_type": 2,
+        "codename": "view_book"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 3,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 3,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 3,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 3,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 4,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 4,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 4,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 4,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 5,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 5,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 5,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 5,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 6,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 6,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 6,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 6,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 7,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 7,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 7,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 7,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 8,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 8,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 8,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 8,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$iWiDC6dAJNn2$uBrpj01Qbt2s+FWUgpldtB26cbNYibdMCeSSg9hyMCI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "janeqhacker",
+        "first_name": "Jane",
+        "last_name": "Hacker",
+        "email": "janeqhacker@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-10-17T04:23:16.592Z",
+        "bio": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$reHinOBY5nYT$u00lm4QVG5oRGpo3QX3r60OMyhSkXq9EUWeXJ+ccD/E=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "alicereader",
+        "first_name": "Alice",
+        "last_name": "Tester",
+        "email": "alicereader@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-10-17T04:23:17.013Z",
+        "bio": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$ix62GT5K9vNB$l1QOXdYv5rV9iPrH+hY/m7tRalenn/Vv4+pjo3T+EzU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "thebestbob",
+        "first_name": "Bob",
+        "last_name": "Lablob",
+        "email": "thebestbob@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-10-17T04:23:17.397Z",
+        "bio": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$iAbsBjLprGiW$xyWxwp+f2z/ShHnygVfjU92naRfsp4608xjdsZ7PFj4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "candy",
+        "first_name": "Candice",
+        "last_name": "Candor",
+        "email": "candy@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-10-17T04:23:17.787Z",
+        "bio": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$XXRGnSHeW2g6$hiy3E9F7gRgamIsvwp8wWfbon59eTuXcnkMZq9dcaps=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "eve.orleave",
+        "first_name": "Eve",
+        "last_name": "Orleave",
+        "email": "eve.orleave@test.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-10-17T04:23:18.171Z",
+        "bio": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.readinglist",
+    "pk": 1,
+    "fields": {
+        "title": "Fantasy books I recently read",
+        "category": "fiction",
+        "description": " ",
+        "created": "2020-04-17T01:23:18.554Z",
+        "last_modified": "2020-10-17T04:28:46.899Z",
+        "creator_user": 5,
+        "score": -1,
+        "views": 43
+    }
+},
+{
+    "model": "core.readinglist",
+    "pk": 2,
+    "fields": {
+        "title": "Favorite books on history and geography",
+        "category": "nonfiction",
+        "description": " ",
+        "created": "2020-09-21T04:23:18.593Z",
+        "last_modified": "2020-09-21T04:25:56.467Z",
+        "creator_user": 2,
+        "score": -2,
+        "views": 2
+    }
+},
+{
+    "model": "core.readinglist",
+    "pk": 3,
+    "fields": {
+        "title": "Most misinterpreted science-fiction books",
+        "category": "fiction",
+        "description": "\n                These are great and interesting books, but the interpretations\n                vary wildly, especially without the historical context.\n            ",
+        "created": "2020-04-17T04:23:18.644Z",
+        "last_modified": "2020-04-17T04:24:06.082Z",
+        "creator_user": 3,
+        "score": -1,
+        "views": 1
+    }
+},
+{
+    "model": "core.readinglist",
+    "pk": 4,
+    "fields": {
+        "title": "My favorite science fiction books",
+        "category": "fiction",
+        "description": "No surprises here, but fun nonetheless",
+        "created": "2019-11-19T04:23:18.691Z",
+        "last_modified": "2019-11-19T04:27:18.031Z",
+        "creator_user": 3,
+        "score": -4,
+        "views": 2
+    }
+},
+{
+    "model": "core.readinglist",
+    "pk": 5,
+    "fields": {
+        "title": "Dystopian YA",
+        "category": "fiction",
+        "description": " ",
+        "created": "2020-05-20T04:23:18.759Z",
+        "last_modified": "2020-05-20T04:23:18.759Z",
+        "creator_user": 2,
+        "score": 0,
+        "views": 0
+    }
+},
+{
+    "model": "core.readinglist",
+    "pk": 6,
+    "fields": {
+        "title": "My kids LOVE these books",
+        "category": "fiction",
+        "description": " ",
+        "created": "2020-10-17T04:23:18.805Z",
+        "last_modified": "2020-10-17T04:28:39.563Z",
+        "creator_user": 1,
+        "score": 5,
+        "views": 107
+    }
+},
+{
+    "model": "core.readinglist",
+    "pk": 7,
+    "fields": {
+        "title": "19th Century Classics",
+        "category": "fiction",
+        "description": " ",
+        "created": "2020-09-21T04:23:18.857Z",
+        "last_modified": "2020-09-21T04:25:38.988Z",
+        "creator_user": 1,
+        "score": -2,
+        "views": 2
+    }
+},
+{
+    "model": "core.readinglist",
+    "pk": 8,
+    "fields": {
+        "title": "Great American Novels",
+        "category": "fiction",
+        "description": " ",
+        "created": "2020-04-20T04:23:18.933Z",
+        "last_modified": "2020-04-20T04:23:18.934Z",
+        "creator_user": 1,
+        "score": 0,
+        "views": 0
+    }
+},
+{
+    "model": "core.readinglist",
+    "pk": 9,
+    "fields": {
+        "title": "The origins of science fiction",
+        "category": "fiction",
+        "description": " ",
+        "created": "2020-09-21T04:23:19.012Z",
+        "last_modified": "2020-09-21T04:25:45.873Z",
+        "creator_user": 4,
+        "score": -2,
+        "views": 4
+    }
+},
+{
+    "model": "core.readinglist",
+    "pk": 10,
+    "fields": {
+        "title": "Early Adult Fantasy Novels",
+        "category": "fiction",
+        "description": " ",
+        "created": "2020-04-17T04:23:19.060Z",
+        "last_modified": "2020-04-17T04:24:48.647Z",
+        "creator_user": 4,
+        "score": -1,
+        "views": 3
+    }
+}
+]
