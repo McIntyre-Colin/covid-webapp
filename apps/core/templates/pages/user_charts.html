@@ -5,11 +5,13 @@
 {% block content %}
 
     {% for rendered_chart in rendered_charts %}
-   {{ rendered_chart|safe }} 
-
-<button> 
-    <a href= "{% url 'editChart' user.username id %}" > Edit </a> 
-</button>
+     {{ rendered_chart.plot|safe }} 
+        <button> 
+            <a href= "{% url 'editChart' user.username rendered_chart.chart_id %}" > Edit </a> 
+        </button>
+        <button> 
+            <a href= "{% url 'deleteChart' user.username rendered_chart.chart_id %}" > Delete </a> 
+        </button>
    {% endfor %}
     
 

@@ -1,5 +1,5 @@
 from django import forms
-from apps.core.models import Book, ReadingList, Chart
+from apps.core.models import Book, ReadingList, Chart, StatesList
 
 
 class AddChartForm(forms.ModelForm):
@@ -11,6 +11,12 @@ class EditChartForm(forms.ModelForm):
     class Meta:
         model = Chart
         fields = ['chart_type', 'day', 'month', 'year', 'stateAbr','filter_field']
+
+class AddStateForm(forms.ModelForm):
+    class Meta:
+        model = StatesList
+        fields = ['state']
+      
 
 class AddBookForm(forms.ModelForm):
     class Meta:

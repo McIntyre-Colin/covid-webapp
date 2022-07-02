@@ -13,12 +13,23 @@
         <h1>{{ form_title }}</h1>
         <form class="d-grid" method="POST">
             {% csrf_token %}
-            {% bootstrap_form form %}
+            {% bootstrap_form formChart exclude='stateAbr' %}
+            {% bootstrap_form formState layout='inline' %}
+            
+            
             <button class="btn btn-lg btn-primary">Save</button>
         </form>
     </div>
 </div>
-
+<div>   
+    <inline>
+        {% for state in states %}
+        <button>
+            <a href="{% url 'deleteState' state.chart state.id %}">{{state.state}}</a>
+        </button>
+    </inline>
+</div>
+        {% endfor %}
         {{ rendered_chart|safe}}
     </br>
 

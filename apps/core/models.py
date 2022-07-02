@@ -30,7 +30,6 @@ class Chart(models.Model):
     creator_user= models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        help_text='Testing Functionality',
     )
     chart_type = models.CharField(max_length=15, choices=CHARTS)
     day = models.CharField(max_length = 2, default='01')
@@ -40,8 +39,13 @@ class Chart(models.Model):
     filter_field = models.CharField(max_length = 40,choices=DATA_FIELDS)
     plot_entry = models.TextField()
 
-
-
+class StatesList(models.Model):
+    chart = models.ForeignKey(
+        Chart,
+        on_delete=models.CASCADE,
+    )
+    state = models.CharField(max_length=2, default='')
+    
 
 
 GENRES = [

@@ -1,14 +1,16 @@
 from multiprocessing import context
+from django.forms import ValidationError
 import requests
 import pygal
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import SuspiciousOperation
 
 from apps.accounts.models import User
-from apps.core.models import Book, ReadingList, Chart
-from apps.core.forms import AddBookForm, AddReadingListForm, AddChartForm, EditChartForm
+from apps.core.models import Book, ReadingList, Chart, StatesList
+from apps.core.forms import AddBookForm, AddReadingListForm, AddChartForm, EditChartForm, AddStateForm
 
 
 # Start of my changes
@@ -25,90 +27,43 @@ def state_data(request):
     }
     return render(request, 'pages/nationwide-data.html', context)
 
-#List of state abbreviations initialized outside the function so it stays current during the session
 
-
-#function which handles the graphing of state specific data
-def graphing_state_values(charts):
-    state_dict = {}
-
-    for chart in charts:
-        if chart.chart_type == 'bar':
-            plot = pygal.Bar()
-        else:
-            plot = pygal.Pie()
-
-        print('------------------')
-        print('state', chart.stateAbr.lower())
-        print(chart.year + chart.month + str(chart.day))
-        #ensuring valid url
-        print('url', 'https://api.covidtracking.com/v1/states/'+ chart.stateAbr.lower() +'/'+ chart.year + chart.month + str(chart.day) +'.json')
-        print('------------------')
-
-        response = requests.get('https://api.covidtracking.com/v1/states/'+ chart.stateAbr.lower() +'/'+ chart.year + chart.month + str(chart.day) +'.json')
-        state_data = response.json()
-        state_dict[state_data['state']] = state_data[chart.filter_field]
-        print(state_dict)
-        sorted_state_keys = sorted(state_dict, key=state_dict.get, reverse=True)
-        print(sorted_state_keys)
-
-        for k in sorted_state_keys:
-            v =state_dict[k]
-            print(v)
-            print(k)
-            print(state_dict)
-            value = int(v)
-            label = str(k)
-            plot.add(label, value)
-        plots_svg = plot.render(is_unicode=True)
-        print('------------')
-        print(' they type is: ', type(plots_svg))
-        print('-------------')
-        chart.plot_entry = plots_svg
-        chart.save()
-        print(chart.plot_entry)
-        print('-------------')
-    return plots_svg
 
 # Seperate function for handling editing charts
-def editing_chart_function(chart):
-    
+def chart_function(chart):
+    print('Using Editing Function')
+
+    states_for_chart = StatesList.objects.filter(chart_id=chart.id)
+    for state in states_for_chart:
+        print(' Getting data frrrom chart',state.chart_id)
+        print('The state is: ', state.state)
     state_dict = {}
     if chart.chart_type == 'bar':
         plot = pygal.Bar()
     else:
         plot = pygal.Pie()
 
-    print('------------------')
-    print('state', chart.stateAbr.lower())
-    print(chart.year + chart.month + str(chart.day))
-    #ensuring valid url
-    print('url', 'https://api.covidtracking.com/v1/states/'+ chart.stateAbr.lower() +'/'+ chart.year + chart.month + str(chart.day) +'.json')
-    print('------------------')
-
-    response = requests.get('https://api.covidtracking.com/v1/states/'+ chart.stateAbr.lower() +'/'+ chart.year + chart.month + str(chart.day) +'.json')
-    state_data = response.json()
-    state_dict[state_data['state']] = state_data[chart.filter_field]
-    print(state_dict)
+    for state in states_for_chart:
+        print('------------------')
+        #ensuring valid url
+        print('url', 'https://api.covidtracking.com/v1/states/'+ state.state.lower() +'/'+ chart.year + chart.month + str(chart.day) +'.json')
+        print('------------------')
+        response = requests.get('https://api.covidtracking.com/v1/states/'+ state.state.lower() +'/'+ chart.year + chart.month + str(chart.day) +'.json')
+        state_data = response.json()
+        state_dict[state_data['state']] = state_data[chart.filter_field]
+        print(state_dict)
+    
     sorted_state_keys = sorted(state_dict, key=state_dict.get, reverse=True)
     print(sorted_state_keys)
 
     for k in sorted_state_keys:
         v =state_dict[k]
-        print(v)
-        print(k)
-        print(state_dict)
         value = int(v)
         label = str(k)
         plot.add(label, value)
     plots_svg = plot.render(is_unicode=True)
-    print('------------')
-    print(' they type is: ', type(plots_svg))
-    print('-------------')
     chart.plot_entry = plots_svg
     chart.save()
-    print(chart.plot_entry)
-    print('-------------')
     return chart
          
 
@@ -127,24 +82,26 @@ def user_page(request, username):
         
     else:
         return redirect('/charts/' + username +'/create/')
-
-    for chart in charts:
-        id = chart.id
-        print(id)
+    
+   
    
 #Maybe move  this to the create page   
     rendered_charts = []
+    ids = []
     for chart in charts:
-        rendered_charts.append(chart.plot_entry)
+        rendered_charts.append({
+            'plot':chart.plot_entry,
+            'chart_id': chart.id
+        })
+        print('group of ids: ',ids)
     chart = Chart.objects.filter(creator_user_id = user.id).values('plot_entry')
     
     print('the rendered chart is: ', rendered_charts)
     print('------------------------')
-    print('the id is: ', id)
     print('------------------------')
     context = {
-            'id' : id,
-            'rendered_charts': chart,
+            
+            'rendered_charts': rendered_charts,
     }
     return render(request, 'pages/user_charts.html', context)
 
@@ -159,9 +116,15 @@ def create_chart(request, username):
             # properly set-up
             new_chart = form.save(commit=False)
             new_chart.creator_user = request.user
+            print('---------------')
+            print('The creator user: ', new_chart.creator_user)
+            print('---------------')
             new_chart.save()
-            charts = Chart.objects.filter(id = new_chart.id)
-            plots_svg = graphing_state_values(charts)
+            # Creating the linked entry in the statesList table
+            stateList = StatesList.objects.create(chart = new_chart, state = new_chart.stateAbr)
+
+            chart = Chart.objects.get(id = new_chart.id)
+            plots_svg = chart_function(chart)
             return redirect('/charts/'+username+'/')
     else:
         # if a GET  we'll create a blank form
@@ -175,45 +138,91 @@ def create_chart(request, username):
 
 def edit_chart(request, username, chart_id):
     print('EDITING CHART VIEW')
+    #Getting chart that the user selected
     chart = Chart.objects.get(id = chart_id)
-    
-
+    #Get the stateslist instance linked to the chart id so the user can enter data
+   
     url = '/charts/'+str(username)+'/'+str(chart_id)+'/'
     print('------------------------')
     print('The url is :', url)
-    print('the chart is: ', chart)
-    print('the id is: ', chart.id)
+    print('the chart is: ', chart.id)
+
     print('------------------------')
 
-  # Get the user we are looking for
-
     if request.method == 'POST':
+        # Create a form instance for the non-state fields
+        #  and populate it with data from the request
+        formChart = EditChartForm(request.POST, instance=chart)
 
-        # Create a form instance and populate it with data from the request
-        form = EditChartForm(request.POST, instance=chart)
+        #Create form instance for adding state to plot
+        formStateList = AddStateForm(request.POST)
+        if formStateList.is_valid():
+            #Updates values in the stateList database
+            new_state = formStateList.save(commit=False)
+            #Check if already in chart
+            existing_states = StatesList.objects.filter(chart_id = chart.id)
 
-        if form.is_valid():
-            chart = form.save(commit=False)
-            print('-----------------')
-            print(chart)
-            print('-----------------')
+            for existing_state in existing_states:
+                print(existing_state.state.lower())
+                if existing_state.state.lower() != new_state.state.lower():
+                    new_state.chart = chart
+                    new_state.save()
+                #Delete New Entry as to not have duplicates  
+                else:
+                    new_state.delete()
+            
+
+        if formChart.is_valid():
+            chart = formChart.save(commit=False)
             chart.save()
             return redirect(url)
+        
 
     else:
         # A GET, create a pre-filled form with the instance.
-        form = EditChartForm(instance=chart)
+        formChart = EditChartForm(instance=chart)
+        formStateList = AddStateForm()
 
-    plots_svg = editing_chart_function(chart)
+    plots_svg = chart_function(chart)
+    qs = StatesList.objects.filter(chart_id = chart.id).values('id', 'state', 'chart_id')
+    print(qs)
+    states=[]
+    for entry in qs:
+        states.append({
+            'id': entry['id'],
+            'state': entry['state'],
+            'chart': entry['chart_id'],
+        })
 
     context = {
-        'form' : form,
+        'formChart' : formChart,
+        'formState' : formStateList,
         'rendered_chart': chart.plot_entry,
+        'states': states,
+
     }
 
     return render(request, 'pages/edit_chart.html', context)
 
+def delete_state(request, chart_id, id):
+    print('---------------')
+    print('deleting state with id', id)
+    state = StatesList.objects.filter(chart_id = chart_id)
+    state = state.get(id = id)
+    state.delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+def delete_chart(request, username, chart_id):
+    print('-----------')
+    print('Deleting chart with ID: ', chart_id)
+    print('-----------')
+    chart = Chart.objects.get(id = chart_id)
+    chart.delete()
+    # Prevent users who are not the owner user from deleting this
+    if chart.creator_user_id != request.user.id:
+       raise SuspiciousOperation('Attempted to delete wrong list')
+
+    return redirect('/charts/'+username+'/')
 # Existing content/functionality to be removed/phased out
 def reading_list_home(request):
     # R in CRUD --- READ ReadingLists from database
@@ -341,6 +350,50 @@ def reading_list_delete_book(request, book_id):
 
 
     #Legay code for requesting data
+
+    #function which handles the graphing of state specific data
+# def graphing_state_values(charts):
+#     state_dict = {}
+
+#     for chart in charts:
+#         if chart.chart_type == 'bar':
+#             plot = pygal.Bar()
+#         else:
+#             plot = pygal.Pie()
+
+#         print('------------------')
+#         print('state', chart.stateAbr.lower())
+#         print(chart.year + chart.month + str(chart.day))
+#         #ensuring valid url
+#         print('url', 'https://api.covidtracking.com/v1/states/'+ chart.stateAbr.lower() +'/'+ chart.year + chart.month + str(chart.day) +'.json')
+#         print('------------------')
+
+#         response = requests.get('https://api.covidtracking.com/v1/states/'+ chart.stateAbr.lower() +'/'+ chart.year + chart.month + str(chart.day) +'.json')
+#         state_data = response.json()
+#         state_dict[state_data['state']] = state_data[chart.filter_field]
+#         print(state_dict)
+#         sorted_state_keys = sorted(state_dict, key=state_dict.get, reverse=True)
+#         print(sorted_state_keys)
+
+#         for k in sorted_state_keys:
+#             v =state_dict[k]
+#             print(v)
+#             print(k)
+#             print(state_dict)
+#             value = int(v)
+#             label = str(k)
+#             plot.add(label, value)
+#         plots_svg = plot.render(is_unicode=True)
+#         print('------------')
+#         print(' they type is: ', type(plots_svg))
+#         print('-------------')
+#         chart.plot_entry = plots_svg
+#         chart.save()
+#         print(chart.plot_entry)
+#         print('-------------')
+#     return plots_svg
+
+
 
     # #Setting a default data type and value
     # stateAbr = ""

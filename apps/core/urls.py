@@ -9,6 +9,8 @@ urlpatterns = [
     path('charts/<username>/', views.user_page, name='userPage'),
     path('charts/<username>/create/',views.create_chart, name='createChart'),
     path('charts/<username>/<chart_id>/', views.edit_chart, name='editChart'),
+    path('charts/<chart_id>/<id>/delete/', views.delete_state, name='deleteState'),
+    path('charts/<username>/<chart_id>/delete/', views.delete_chart, name='deleteChart'),
     path('list/<int:list_id>/', views.reading_list_details),
     path('list/create/', views.reading_list_create),
     path('list/delete/<int:list_id>/', views.reading_list_delete),
