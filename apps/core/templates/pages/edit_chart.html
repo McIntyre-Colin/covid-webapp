@@ -10,7 +10,7 @@
 
 <div class="card border rounded shadow-lg">
     <div class="card-body">
-        <h1>Edit Your Chart!!</h1>
+        <h1>Edit Your Chart!</h1>
         <form class="d-grid" method="POST">
             {% csrf_token %}
             {% bootstrap_form formChartProp exclude='stateAbr' %}
