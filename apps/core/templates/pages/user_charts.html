@@ -3,14 +3,17 @@
 {% include "snippets/navbar.html" %}
 
 {% block content %}
+<button class="btn btn-lg btn-primary"> 
+    <a href= "{% url 'createChart' user.username%}" class="link-light"> Create </a> 
+</button>
 
     {% for rendered_chart in rendered_charts %}
      {{ rendered_chart.plot|safe }} 
-        <button> 
-            <a href= "{% url 'editChart' user.username rendered_chart.chart_id %}" > Edit </a> 
+        <button class="btn btn-sm btn-primary"> 
+            <a href= "{% url 'editChart' user.username rendered_chart.chart_id %}" class="link-light"> Edit </a> 
         </button>
-        <button> 
-            <a href= "{% url 'deleteChart' user.username rendered_chart.chart_id %}" > Delete </a> 
+        <button class="btn btn-sm btn-primary"> 
+            <a href= "{% url 'deleteChart' user.username rendered_chart.chart_id %}" class="link-light"> Delete </a> 
         </button>
    {% endfor %}
     
@@ -18,8 +21,6 @@
 
     </br>
     
-    <button> 
-        <a href= "{% url 'createChart' user.username%}" > Create </a> 
-    </button>
+  
 
 {% endblock content %}

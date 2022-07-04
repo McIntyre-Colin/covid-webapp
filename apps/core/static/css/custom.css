@@ -21,7 +21,6 @@ body {
 }
 
 
-/* Other custom CSS goes here */
 .card-user {
     max-width: 80px;
 }
@@ -43,4 +42,13 @@ body {
 .hero-unit {
     background: url('../img/books_bg_2.jpg') no-repeat;
 }
+
+/* Adding styling for buttons */
+.CustomButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
 

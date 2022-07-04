@@ -1,24 +1,83 @@
 {% load django_bootstrap5 %}
+<style>
+   .vote {
+max-width: 15px;
+max-height: 15px;
 
-{% for rl in results_page %}
-    <!-- Loop through each Reading List and display it -->
+} 
+
+.vote-down {
+    max-width: 15px;
+    max-height: 15px;
+    transform: scaleY(-1);
+}
+
+.VoteContainer {
+    display: grid;
+    grid-template-columns: 40px 40px;
+    grid-template-rows: 40px 40px;
+    grid-template-areas:    "count up-arrow" 
+                            "count down-arrow";
+}
+.VoteContainer-votes {
+    grid-area: count;
+    font-size: 20pt;
+    font-weight:bold;
+    color:black;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    align-self: center;
+    justify-self: center;
+}
+
+.VoteContainer-up-arrow {
+    grid-area: 'up-arrow';
+    align-self: center;
+    justify-self: center;
+}
+.VoteContainer-down-arrow {
+    grid-area: 'down-arrow';
+    align-self: center;
+    justify-self: center;
+}
+</style>
+
+{% for plot in results_page.object_list %}
+
+    <!-- Loop through each plot and display it -->
 
     <div class="d-flex justify-content-between mt-3 border rounded shadow-sm">
-        <!-- This shows the "name" of the Reading List as a link to the full
+        <!-- This shows the "name" of the plot as a link to the full
              details of that list -->
     
 
-        {{ rendered_chart|safe}}
+        {{ plot.plot_entry|safe}}
         <!-- This shows the creation date of the list, along with the avatar
              and username of the creator -->
         <div>
-           
-            <a class="btn btn-link" href="{% url "view_profile" rl.creator_user.username %}">
-                {{ rl.creator_user }}
-                <img src="{{ rl.creator_user.gravatar }}" class="navbar-avatar" />
-            </a>
+            {{ plot.created|date:"F jS Y" }} by
+        </br>
+                {{ plot.creator_user }}
+                <img src="{{ plot.creator_user.gravatar }}" class="navbar-avatar" />
+            <!-- </a> -->
+            <div class="VoteContainer">
+                <div class="VoteContainer-votes">
+                    {{ plot.votes }}
+                </div>
+                <div class="VoteContainer-up-arrow"> 
+                    <a href="{% url 'voteUp' user.id plot.id %}">
+                        <img src="static/img/up-arrow.png" class="vote">
+                    </a>
+                </div>
+                <div class="VoteContainer-down-arrow">
+                    <a href="{% url 'voteDown' user.id plot.id %}">
+                        <img src="static/img/up-arrow.png" class="vote-down">
+                    </a>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
+
 {% empty %}
     <p>No Charts... yet!</p>
 {% endfor %}

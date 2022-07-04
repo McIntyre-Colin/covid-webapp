@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book, ReadingList, Chart
-admin.site.register(Book)
-admin.site.register(ReadingList)
+from .models import Chart, StatesList, ChartProperties
 admin.site.register(Chart)
+admin.site.register(StatesList)
+admin.site.register(ChartProperties)

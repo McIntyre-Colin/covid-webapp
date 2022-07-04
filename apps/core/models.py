@@ -26,64 +26,29 @@ DATA_FIELDS=[
     ('death', 'Deaths to Date'),
     ('deathIncrease', 'Daily Increase in Deaths'),
 ]
+
+state_abbr_list=[
+    'al', 'ak','az','ar','ca','co','ct','de','fl','ga','hi','id','il','in','ia',
+    'ks','ky','la','me','md','ma','mi','mn','ms','mo','mt','ne','nv','nh','nj','nm','ny','nc',
+    'nd','oh','ok','or','pa','ri','sc','sd','tn','tx','ut','vt','va','wa','wv','wi','wy',
+]
 class Chart(models.Model):
     creator_user= models.ForeignKey(
         User,
         on_delete=models.CASCADE,
     )
-    chart_type = models.CharField(max_length=15, choices=CHARTS)
-    day = models.CharField(max_length = 2, default='01')
-    month = models.CharField(max_length = 15, choices= MONTH)
-    year = models.CharField(max_length = 15, choices= YEAR)
-    stateAbr = models.CharField(max_length=2)
-    filter_field = models.CharField(max_length = 40,choices=DATA_FIELDS)
-    plot_entry = models.TextField()
-
-class StatesList(models.Model):
-    chart = models.ForeignKey(
-        Chart,
-        on_delete=models.CASCADE,
-    )
-    state = models.CharField(max_length=2, default='')
-    
-
-
-GENRES = [
-    ('fiction', 'Adult Fiction'),
-    ('nonfiction', 'Adult Non-Fiction'),
-    ('children', "Children's Books"),
-]
-
-class ReadingList(models.Model):
-    title = models.CharField(max_length=100)
-    category = models.CharField(max_length=64, choices=GENRES)
-    description = models.TextField()
-
-    # Time stamp information:
     created = models.DateTimeField(auto_now_add=True) # Add current date
     last_modified = models.DateTimeField(auto_now=True)
-
-    creator_user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        help_text='User who created this reading list',
-    )
-
-    # Used for calculating popularity / trending
-    score = models.IntegerField(default=0)
-    views = models.PositiveIntegerField(default=0)
-
-    def get_absolute_url(self):
-        return f'/list/{self.id}/'
-
-    def __str__(self):
-        return self.title
+    title = models.CharField(max_length=50, default='Title')
+    plot_entry = models.TextField()
+    votes = models.IntegerField(default=0)
 
     def increment_views(self):
         self.views += 1
         self.recalculate_popularity()
         self.save()
 
+    #Algorithim to calculate 'hot' charts, need to implement
     def recalculate_popularity(self):
         # Calculate how old the post is in hours
         age = now() - self.created
@@ -95,16 +60,38 @@ class ReadingList(models.Model):
 
         # Round to the nearest whole value
         self.score = round(score)
+    
+class Voted(models.Model):
+    chart = models.ManyToManyField(Chart)
+    user = models.ManyToManyField(User)
+    has_voted = models.BooleanField(default=False)
+    vote = models.CharField(max_length = 4, blank=True)
 
-
-class Book(models.Model):
-    title = models.CharField(max_length=30)
-    description = models.TextField(blank=True)
-    reading_list = models.ForeignKey(
-        ReadingList,
+class ChartProperties(models.Model):
+    chart = models.ForeignKey(
+        Chart,
         on_delete=models.CASCADE,
     )
+    title = models.CharField(max_length=50, default='Title')
+    chart_type = models.CharField(max_length=15, choices=CHARTS)
+    day = models.CharField(max_length = 2, default='01')
+    month = models.CharField(max_length = 15, choices= MONTH)
+    year = models.CharField(max_length = 15, choices= YEAR)
+    stateAbr = models.CharField(max_length=2)
+    filter_field = models.CharField(max_length = 40,choices=DATA_FIELDS)
 
-    def __str__(self):
-        return self.title
+class StatesList(models.Model):
+    chart = models.ForeignKey(
+        Chart,
+        on_delete=models.CASCADE,
+    )
+    state = models.CharField(max_length=2, default='',blank=True)
+    
+
+
+GENRES = [
+    ('fiction', 'Adult Fiction'),
+    ('nonfiction', 'Adult Non-Fiction'),
+    ('children', "Children's Books"),
+]
 
