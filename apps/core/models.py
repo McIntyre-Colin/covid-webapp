@@ -89,9 +89,5 @@ class StatesList(models.Model):
     
 
 
-GENRES = [
-    ('fiction', 'Adult Fiction'),
-    ('nonfiction', 'Adult Non-Fiction'),
-    ('children', "Children's Books"),
-]
+
 

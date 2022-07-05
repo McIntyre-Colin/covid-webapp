@@ -13,7 +13,6 @@ from apps.accounts.models import User
 from apps.core.models import ChartProperties, Chart, StatesList, Voted, state_abbr_list
 from apps.core.forms import AddChartForm, EditChartForm, AddStateForm
 
-
 # Start of my changes
 def state_data(request):
     # Tabular data relating to covid cases by state
@@ -167,7 +166,7 @@ def edit_chart(request, username, chart_id):
         formChartProp = EditChartForm(request.POST, instance=chart_prop)
         
         #Create form instance for adding state to plot
-        formStateList = AddStateForm(request.POST)
+        formStateList = AddStateForm(request.POST)        
 
         if formStateList.is_valid():
             print('STATE FORM VALID')
