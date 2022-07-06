@@ -66,12 +66,12 @@ max-height: 15px;
                 </div>
                 <div class="VoteContainer-up-arrow"> 
                     <a href="{% url 'voteUp' user.id plot.id %}">
-                        <img src="{% static '/img/up-arrow.png' %}" class="vote" alt="Up Vote">
+                        <img src="../../static/img/up-arrow.png" class="vote" alt="Up Vote">
                     </a>
                 </div>
                 <div class="VoteContainer-down-arrow">
                     <a href="{% url 'voteDown' user.id plot.id %}">
-                        <img src="{% static '/img/up-arrow.png' %}" class="vote-down" alt="Down Vote">
+                        <img src="{% static 'img/up-arrow.png' %}" class="vote-down" alt="Down Vote">
                     </a>
                 </div>
             </div>
