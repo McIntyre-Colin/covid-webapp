@@ -1,4 +1,5 @@
 {% load django_bootstrap5 %}
+{% load static %}
 <style>
    .vote {
 max-width: 15px;
@@ -65,12 +66,12 @@ max-height: 15px;
                 </div>
                 <div class="VoteContainer-up-arrow"> 
                     <a href="{% url 'voteUp' user.id plot.id %}">
-                        <img src="/static/img/up-arrow.png" class="vote">
+                        <img src="{% static 'img/up-arrow.png' %}" class="vote" alt="vote">
                     </a>
                 </div>
                 <div class="VoteContainer-down-arrow">
                     <a href="{% url 'voteDown' user.id plot.id %}">
-                        <img src="/static/img/up-arrow.png" class="vote-down">
+                        <img src="{% static 'img/up-arrow.png' %}" class="vote-down" alt="vote">
                     </a>
                 </div>
             </div>
