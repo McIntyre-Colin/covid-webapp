@@ -11,6 +11,7 @@ max-height: 15px;
     max-width: 15px;
     max-height: 15px;
     transform: scaleY(-1);
+   
 }
 
 .VoteContainer {
@@ -34,6 +35,7 @@ max-height: 15px;
     grid-area: 'up-arrow';
     align-self: center;
     justify-self: center;
+
 }
 .VoteContainer-down-arrow {
     grid-area: 'down-arrow';
@@ -65,7 +67,7 @@ max-height: 15px;
                     {{ plot.votes }}
                 </div>
                 <div class="VoteContainer-up-arrow"> 
-                    <a href="{% url 'voteUp' user.id plot.id %}">
+                    <a href="{% url 'voteUp' user.id plot.id %}"class="vote" >
                         <img src="{% static '/img/up-arrow.png' %}" class="vote" alt="Up Vote">
                     </a>
                 </div>
